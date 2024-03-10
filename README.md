@@ -18,3 +18,6 @@ template：存放静态模板文件；
 
 本项目是对《Go 语言编程之旅：一起用 Go 做项目》 第四章聊天室的复现.
 通过该项目的练习,可以学习到使用nhooyr网络库的网络编程知识以及协程之间利用channel进行通信的方法.
+
+reference:
+https://github.com/go-programming-tour-book/chatroom
