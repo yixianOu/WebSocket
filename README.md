@@ -13,7 +13,7 @@ WebSocket 提供全双工通信,并且可以在 TCP 之上启用消息流,而TCP
 相关目录说明如下：
 * cmd：用于存放 main.main；
 * logic：用于存放项目核心业务逻辑代码；
-  * 1)broadcast.go: 负责将用户发送的消息广播给聊天室里的其他人, 单例broadcastor在start()协程内利用 for- select 各个channel, 达到广播消息的目的.  同时还包含CanEnterRoom()和GetUserList(), 用于判断用户名是否重复和获取用户列表;
+  * 1)broadcast.go: 负责将用户发送的消息广播给聊天室里的其他人, 单例broadcastor在start()协程内利用 for- select 监听各个channel, 以便接收消息, 然后通过Broadcast()等方法将消息广播.  同时还包含CanEnterRoom()和GetUserList(), 用于判断用户名是否重复和获取用户列表;
   * 2)user.go: 包含user类型, 其含有SendMessage()、ReceiveMessage()等方法, 以便websocket调用.  首先被实例化的是UID为0的系统用户;
   * 3)message.go: 包含Message类型, 其含有NewMessage()方法对从用户接收到的消息进行封装, 还有便于websocket调用的服务用户的方法.  Message中的Type字段用于对消息分类：用户消息、系统消息、错误消息、用户列表;
 * server：服务端按流程调用业务;
