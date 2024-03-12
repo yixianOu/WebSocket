@@ -22,7 +22,7 @@ WebSocket 提供全双工通信,并且可以在 TCP 之上启用消息流,而TCP
   * 3)websocket.go  包含Accept(), 从前端接收WebSocket握手并升级连接为WebSocket.  还负责构建用户实例并提供服务, 如启动协程SendMessage()向用户发送消息, 执行ReceiveMessage()接收用户的消息等.  如果读取消息时有错误则返回;
 * template：存放前端静态模板文件；
 * global：预先准备好环境;
-  * 1）init.go 包含inferRootDir函数和init()函数, 用来推断根目录, 初始化全局变量;
+  * 1）init.go 包含inferRootDir函数和init()函数, 用来推断根目录和调用config.go;
   * 2）config.go 解析config包中的yaml文件，用于对全局变量的初始化
 
 本项目是对《Go 语言编程之旅：一起用 Go 做项目》 第四章聊天室的复现.
